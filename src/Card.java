@@ -38,6 +38,18 @@ public class Card {
         return card;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return color + value + " (ID:" + id + ")";
