@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Player {
 
     static int total_players = 0;
-    private int startingHandSize = 7;
+    private final int startingHandSize = 7;
     private ArrayList<Card> hand;
     private int id;
 
