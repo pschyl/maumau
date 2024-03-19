@@ -46,8 +46,13 @@ public class Card {
         return value;
     }
 
-    public int getId() {
-        return id;
+    static Card getCardById(int id, ArrayList<Card> cards) {
+        for (Card card : cards) {
+            if (card.id == id) {
+                return card;
+            }
+        }
+        return null;
     }
 
     @Override

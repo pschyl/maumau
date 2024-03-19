@@ -9,9 +9,10 @@ public class Player {
     private ArrayList<Card> hand;
     private int id;
 
+
     public Player() {
         id = total_players;
-        this.hand = getStartingHand();
+        hand = getStartingHand();
         total_players += 1;
     }
 
@@ -31,15 +32,26 @@ public class Player {
     }
 
 
+    public boolean checkIfHandEmpty() {
+        if (hand.size() == 0) {
+            return true;
+        }
+        return false;
+    }
+
+
     public boolean playCard(Card card) {
         Card topCard = Game.pile.get(0);
         if (card.getColor() != topCard.getColor() && card.getValue() != topCard.getValue() && card.getValue() != "J") {
-            System.out.println("Color and Value don't match.");
             return false;
         }
         Game.pile.add(0,card);
         hand.remove(card);
         return true;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
