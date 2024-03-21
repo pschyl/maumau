@@ -47,6 +47,9 @@ public class Player {
         }
         Game.pile.add(0,card);
         hand.remove(card);
+
+        //check if card is J
+
         return true;
     }
 

@@ -44,8 +44,13 @@ public class Game {
                 //display hand and top of pile to player
                 System.out.println("| Player " + player.getId() + " |");
                 System.out.println("On Pile: " + pile.get(0));
+
+                //check top of pile for 7/8 card
+                if (pile.get(0).getValue().equals("8") && )
+
                 System.out.println("Your Hand: " + player.getHand());
                 System.out.println("---------");
+
 
                 //player choose card to play
 

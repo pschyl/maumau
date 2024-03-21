@@ -9,11 +9,13 @@ public class Card {
     private String color;
     private String value;
     private int id;
+    private boolean triggered;
 
     public static ArrayList<Card> deck = new ArrayList<>();
 
     public Card(String color, String value) {
         id =  total_cards;
+        triggered = false;
         this.color = color;
         this.value = value;
         total_cards += 1;
@@ -41,6 +43,8 @@ public class Card {
     public String getColor() {
         return color;
     }
+
+
 
     public String getValue() {
         return value;
