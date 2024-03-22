@@ -32,7 +32,7 @@ public class Game {
             players.add(newPlayer);
         }
 
-        Game.pile.add(0,Card.drawFromDeck());
+        Game.pile.addFirst(Card.drawFromDeck());
         System.out.println(" ");
         System.out.println(" ");
 
@@ -50,14 +50,14 @@ public class Game {
 
                 //Display top of pile to player
                 System.out.println("| Player " + player.getId() + " |");
-                System.out.println("On Pile: " + pile.get(0));
+                System.out.println("On Pile: " + pile.getFirst());
                 if (jokerColor[0] != null) {
                     System.out.println("Joker color: " + jokerColor[0]);
                 }
 
                 //check top of pile for 8
-                if (pile.get(0).getValue().equals("8") && !pile.get(0).isTriggered()) {
-                    pile.get(0).setTriggered(true);
+                if (pile.getFirst().getValue().equals("8") && !pile.getFirst().isTriggered()) {
+                    pile.getFirst().setTriggered(true);
                     System.out.println("Turn skipped!");
                     System.out.println(" ");
                     System.out.println(" ");
@@ -65,7 +65,7 @@ public class Game {
                 }
 
                 //check top of pile for 7
-                if (pile.get(0).getValue().equals("7") && sevenTrigger != 0) {
+                if (pile.getFirst().getValue().equals("7") && sevenTrigger != 0) {
                     System.out.println(sevenTrigger + "x 7 is on pile!");
                 }
 
@@ -84,7 +84,7 @@ public class Game {
                 if (sevenTrigger != 0) {
                     if (chosenCard.getValue().equals("7")) {
                         sevenTrigger += 1;
-                        pile.add(0,chosenCard);
+                        pile.addFirst(chosenCard);
                         player.getHand().remove(chosenCard);
                     } else {
                         System.out.println("Draw " + sevenTrigger*2 +" cards!");
@@ -100,7 +100,7 @@ public class Game {
                 }
 
                 /// checks if card in hand // checks if chosen card can be played
-                if (chosenCard == null || !chosenCard.isValid(pile.get(0))) {
+                if (chosenCard == null || !chosenCard.isValid(pile.getFirst())) {
                     System.out.println("Not a valid card. Draw a card!");
                     System.out.println(" ");
                     System.out.println(" ");
@@ -115,7 +115,7 @@ public class Game {
                 System.out.println(" ");
 
                 //check condition for ending the game
-                if (player.checkIfHandEmpty()) {
+                if (player.getHand().isEmpty()) {
                     gameOn = false;
                     scan.close();
                     Player.getScanJ().close();

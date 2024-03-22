@@ -39,8 +39,8 @@ public class Card {
         if (deck.isEmpty()) {
             pileToDeck();
         }
-        Card card = deck.get(0);
-        deck.remove(0);
+        Card card = deck.getFirst();
+        deck.removeFirst();
         return card;
     }
 
@@ -48,7 +48,7 @@ public class Card {
         deck.addAll(Game.pile);
         shuffleDeck();
         Game.pile.clear();
-        Game.pile.add(0,Card.drawFromDeck());
+        Game.pile.addFirst(Card.drawFromDeck());
 
     }
 
