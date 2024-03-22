@@ -45,7 +45,7 @@ public class Card {
     }
 
     static void pileToDeck() {
-        deck = Game.pile;
+        deck.addAll(Game.pile);
         shuffleDeck();
         Game.pile.clear();
         Game.pile.add(0,Card.drawFromDeck());

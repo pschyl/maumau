@@ -1,10 +1,11 @@
 import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
 
-    public static Scanner scan = new Scanner(System.in);
+    private static Scanner scan = new Scanner(System.in);
 
     public static ArrayList<Card> pile = new ArrayList<>();
 
@@ -13,7 +14,6 @@ public class Game {
     public static String[] jokerColor = new String[1];
 
     public static int sevenDraw = 0;
-
     private static boolean gameOn = true;
 
 
@@ -94,9 +94,6 @@ public class Game {
                     break;
                 }
             }
-
-
         }
     }
-
 }

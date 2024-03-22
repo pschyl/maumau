@@ -39,12 +39,12 @@ public class Player {
 
 
     public void playCard(Card card) {
-
+        Scanner scanJ = new Scanner(System.in);
         if (card.getValue().equals("J")) {
             while(true) {
                 List colorList = Arrays.asList(Card.getColors());
                 System.out.println("Which color do you choose? (" + colorList.get(0) + ", " + colorList.get(1) + ", " + colorList.get(2) + ", " + colorList.get(3) + ")");
-                String jokerColor = Game.scan.nextLine();
+                String jokerColor = scanJ.nextLine();
 
                 if (colorList.contains(jokerColor)) {
                     Game.jokerColor[0] = jokerColor;
