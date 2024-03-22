@@ -92,6 +92,7 @@ public class Game {
                         }
                         sevenTrigger = 0;
                     }
+                    System.out.println("--------------------");
                     continue;
                 }
 
