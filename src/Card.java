@@ -64,6 +64,7 @@ public class Card {
         }else {
             colorToPlay = Game.jokerColor[0];
         }
+
         if (!Objects.equals(this.getColor(), colorToPlay)
                 && !Objects.equals(this.getValue(), onPile.getValue())
                 && !Objects.equals(this.getValue(), "J")) {
@@ -86,6 +87,10 @@ public class Card {
 
     public String getValue() {
         return value;
+    }
+
+    public int getId() {
+        return id;
     }
 
     static Card getCardById(int id, ArrayList<Card> cards) {

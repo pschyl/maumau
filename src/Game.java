@@ -13,7 +13,7 @@ public class Game {
 
     public static String[] jokerColor = new String[1];
 
-    public static int sevenDraw = 0;
+    public static int sevenTrigger = 0;
     private static boolean gameOn = true;
 
 
@@ -62,6 +62,11 @@ public class Game {
                     continue;
                 }
 
+                //check top of pile for 7
+                if (pile.get(0).getValue().equals("7") && sevenTrigger != 0) {
+                    System.out.println(sevenTrigger + "x 7 is on pile!");
+                }
+
                 //display hand to player
                 System.out.println("Your Hand: " + player.getHand());
                 System.out.println("---------");
@@ -72,6 +77,24 @@ public class Game {
 
                 //player plays card or draws if card is not valid
                 Card chosenCard = Card.getCardById(chosenCardID, player.getHand());
+
+                //7 is triggered
+                if (sevenTrigger != 0) {
+                    if (chosenCard.getValue().equals("7")) {
+                        sevenTrigger += 1;
+                        pile.add(0,chosenCard);
+                        player.getHand().remove(chosenCard);
+                    } else {
+                        System.out.println("Draw " + sevenTrigger*2 +" cards!");
+                        for (int i = 0; i < sevenTrigger; i++) {
+                            player.getHand().add(Card.drawFromDeck());
+                            player.getHand().add(Card.drawFromDeck());
+                        }
+                        sevenTrigger = 0;
+                    }
+                    continue;
+                }
+
                 /// checks if card in hand // checks if chosen card can be played
                 if (chosenCard == null || !chosenCard.isValid(pile.get(0))) {
                     System.out.println("Not a valid card. Draw a card!");
@@ -89,6 +112,7 @@ public class Game {
                 if (player.checkIfHandEmpty()) {
                     gameOn = false;
                     scan.close();
+                    Player.getScanJ().close();
                     System.out.println("GAME IS OVER!");
                     System.out.println("Player " + player.getId() + " wins!");
                     break;

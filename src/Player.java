@@ -2,10 +2,11 @@ import java.util.*;
 
 public class Player {
 
-    static int total_players = 0;
+    private static int total_players = 0;
     private final int startingHandSize = 7;
     private ArrayList<Card> hand;
     private int id;
+    private static Scanner scanJ = new Scanner(System.in);
 
 
     public Player() {
@@ -39,7 +40,7 @@ public class Player {
 
 
     public void playCard(Card card) {
-        Scanner scanJ = new Scanner(System.in);
+
         if (card.getValue().equals("J")) {
             while(true) {
                 List colorList = Arrays.asList(Card.getColors());
@@ -54,13 +55,21 @@ public class Player {
             }
         }
 
+        if (card.getValue().equals("7")) {
+            Game.sevenTrigger += 1;
+        }
+
         Game.pile.add(0,card);
         hand.remove(card);
-
     }
+
 
     public int getId() {
         return id;
+    }
+
+    public static Scanner getScanJ() {
+        return scanJ;
     }
 
     @Override
