@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Player {
 
@@ -40,17 +38,25 @@ public class Player {
     }
 
 
-    public boolean playCard(Card card) {
-        Card topCard = Game.pile.get(0);
-        if (card.getColor() != topCard.getColor() && card.getValue() != topCard.getValue() && card.getValue() != "J") {
-            return false;
+    public void playCard(Card card) {
+
+        if (card.getValue().equals("J")) {
+            while(true) {
+                List colorList = Arrays.asList(Card.getColors());
+                System.out.println("Which color do you choose? (" + colorList.get(0) + ", " + colorList.get(1) + ", " + colorList.get(2) + ", " + colorList.get(3) + ")");
+                String jokerColor = Game.scan.nextLine();
+
+                if (colorList.contains(jokerColor)) {
+                    Game.jokerColor[0] = jokerColor;
+                    break;
+                }
+                System.out.println("Not a valid color!");
+            }
         }
+
         Game.pile.add(0,card);
         hand.remove(card);
 
-        //check if card is J
-
-        return true;
     }
 
     public int getId() {
