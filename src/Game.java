@@ -33,7 +33,8 @@ public class Game {
         }
 
         Game.pile.add(0,Card.drawFromDeck());
-        System.out.println("--------------------");
+        System.out.println(" ");
+        System.out.println(" ");
 
         mainLoop();
 
@@ -58,7 +59,8 @@ public class Game {
                 if (pile.get(0).getValue().equals("8") && !pile.get(0).isTriggered()) {
                     pile.get(0).setTriggered(true);
                     System.out.println("Turn skipped!");
-                    System.out.println("--------------------");
+                    System.out.println(" ");
+                    System.out.println(" ");
                     continue;
                 }
 
@@ -92,14 +94,16 @@ public class Game {
                         }
                         sevenTrigger = 0;
                     }
-                    System.out.println("--------------------");
+                    System.out.println(" ");
+                    System.out.println(" ");
                     continue;
                 }
 
                 /// checks if card in hand // checks if chosen card can be played
                 if (chosenCard == null || !chosenCard.isValid(pile.get(0))) {
                     System.out.println("Not a valid card. Draw a card!");
-                    System.out.println("--------------------");
+                    System.out.println(" ");
+                    System.out.println(" ");
                     player.getHand().add(Card.drawFromDeck());
                     continue;
                 }
@@ -107,7 +111,8 @@ public class Game {
                 jokerColor[0] = null;
                 player.playCard(chosenCard);
 
-                System.out.println("--------------------");
+                System.out.println(" ");
+                System.out.println(" ");
 
                 //check condition for ending the game
                 if (player.checkIfHandEmpty()) {
