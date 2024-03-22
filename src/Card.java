@@ -49,7 +49,6 @@ public class Card {
         shuffleDeck();
         Game.pile.clear();
         Game.pile.addFirst(Card.drawFromDeck());
-
     }
 
 
@@ -89,10 +88,6 @@ public class Card {
         return value;
     }
 
-    public int getId() {
-        return id;
-    }
-
     static Card getCardById(int id, ArrayList<Card> cards) {
         for (Card card : cards) {
             if (card.id == id) {
@@ -101,8 +96,6 @@ public class Card {
         }
         return null;
     }
-
-
 
     @Override
     public String toString() {

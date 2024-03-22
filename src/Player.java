@@ -50,6 +50,7 @@ public class Player {
             Game.sevenTrigger += 1;
         }
 
+
         Game.pile.addFirst(card);
         hand.remove(card);
     }

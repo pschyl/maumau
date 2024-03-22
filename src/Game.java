@@ -51,6 +51,8 @@ public class Game {
                 //Display top of pile to player
                 System.out.println("| Player " + player.getId() + " |");
                 System.out.println("On Pile: " + pile.getFirst());
+
+                //check if joker was played before and if so display chosen color
                 if (jokerColor[0] != null) {
                     System.out.println("Joker color: " + jokerColor[0]);
                 }
