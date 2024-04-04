@@ -47,6 +47,12 @@ public class Game {
             players.getFirst().getHand().add(Card.drawFromDeck());
         }
 
+        //check top of pile for J
+        if (pile.getFirst().getValue().equals("J")) {
+            System.out.println("J is on Pile");
+            System.out.println("Player 0 is free to play any card!");
+        }
+
         System.out.println(" ");
         System.out.println(" ");
 
@@ -126,7 +132,10 @@ public class Game {
                     continue;
                 }
 
+                // reset jokerColor if chosen card is valid
                 jokerColor[0] = null;
+
+                //play card
                 player.playCard(chosenCard);
 
                 System.out.println(" ");
