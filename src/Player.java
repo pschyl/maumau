@@ -50,6 +50,10 @@ public class Player {
             Game.incrementSevenTrigger();
         }
 
+        if (card.getValue().equals("8")) {
+            Game.setEightTrigger(false);
+        }
+
 
         Game.getPile().addFirst(card);
         hand.remove(card);

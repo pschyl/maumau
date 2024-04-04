@@ -10,13 +10,11 @@ public class Card {
     private final String color;
     private final String value;
     private final int id;
-    private boolean triggered;
 
     public static ArrayList<Card> deck = new ArrayList<>();
 
     public Card(String color, String value) {
         id =  total_cards;
-        triggered = false;
         this.color = color;
         this.value = value;
         total_cards += 1;
@@ -51,7 +49,6 @@ public class Card {
         Game.getPile().addFirst(Card.drawFromDeck());
     }
 
-
     public String getColor() {
         return color;
     }
@@ -79,14 +76,6 @@ public class Card {
 
     public static String[] getColors() {
         return COLORS;
-    }
-
-    public boolean isTriggered() {
-        return triggered;
-    }
-
-    public void setTriggered(boolean triggered) {
-        this.triggered = triggered;
     }
 
     public String getValue() {

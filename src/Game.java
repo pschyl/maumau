@@ -11,8 +11,13 @@ public class Game {
     private static ArrayList<Player> players = new ArrayList<>();
     private static String[] jokerColor = new String[1];
     private static int sevenTrigger = 0;
+    private static boolean eightTrigger = false;
     private static boolean gameOn = true;
 
+
+    public static void setEightTrigger(boolean eightTrigger) {
+        Game.eightTrigger = eightTrigger;
+    }
 
     public static void incrementSevenTrigger() {
         Game.sevenTrigger += 1;
@@ -94,8 +99,8 @@ public class Game {
                 }
 
                 //check top of pile for 8
-                if (pile.getFirst().getValue().equals("8") && !pile.getFirst().isTriggered()) {
-                    pile.getFirst().setTriggered(true);
+                if (pile.getFirst().getValue().equals("8") && !eightTrigger) {
+                    eightTrigger = true;
                     System.out.println("Turn skipped!");
                     System.out.println(" ");
                     System.out.println(" ");
