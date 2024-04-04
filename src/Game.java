@@ -8,6 +8,7 @@ public class Game {
     private static Scanner scan = new Scanner(System.in);
 
     public static ArrayList<Card> pile = new ArrayList<>();
+    private static int turn = 0;
 
     public static ArrayList<Player> players = new ArrayList<>();
 
@@ -16,6 +17,9 @@ public class Game {
     public static int sevenTrigger = 0;
     private static boolean gameOn = true;
 
+    public static int getTurn() {
+        return turn;
+    }
 
     public static void startGame() {
         //create Deck
@@ -34,6 +38,16 @@ public class Game {
 
         Game.pile.addFirst(Card.drawFromDeck());
         System.out.println(" ");
+
+        //check top of pile for 7
+        if (pile.getFirst().getValue().equals("7")) {
+            System.out.println("7 is on Pile");
+            System.out.println("Player 0 draws 2 cards!");
+            players.getFirst().getHand().add(Card.drawFromDeck());
+            players.getFirst().getHand().add(Card.drawFromDeck());
+        }
+
+        System.out.println(" ");
         System.out.println(" ");
 
         mainLoop();
@@ -47,6 +61,9 @@ public class Game {
         while (gameOn) {
 
             for (Player player : players) {
+
+                //increment turn
+                turn++;
 
                 //Display top of pile to player
                 System.out.println("| Player " + player.getId() + " |");
@@ -79,12 +96,11 @@ public class Game {
                 System.out.println("ID of card you want to play: ");
                 int chosenCardID = scan.nextInt();
 
-                //player plays card or draws if card is not valid
                 Card chosenCard = Card.getCardById(chosenCardID, player.getHand());
 
                 //7 is triggered
                 if (sevenTrigger != 0) {
-                    if (chosenCard.getValue().equals("7")) {
+                    if (chosenCard != null && chosenCard.getValue().equals("7")) {
                         sevenTrigger += 1;
                         pile.addFirst(chosenCard);
                         player.getHand().remove(chosenCard);

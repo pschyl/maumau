@@ -57,6 +57,11 @@ public class Card {
     }
 
     public boolean isValid(Card onPile) {
+
+        if (Game.getTurn() == 1 && Objects.equals(onPile.getValue(), "J")) {
+            return true;
+        }
+
         String colorToPlay;
         if (Game.jokerColor[0] == null) {
             colorToPlay = onPile.getColor();
@@ -85,6 +90,7 @@ public class Card {
     }
 
     public String getValue() {
+
         return value;
     }
 
