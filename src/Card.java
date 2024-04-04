@@ -45,10 +45,10 @@ public class Card {
     }
 
     static void pileToDeck() {
-        deck.addAll(Game.pile);
+        deck.addAll(Game.getPile());
         shuffleDeck();
-        Game.pile.clear();
-        Game.pile.addFirst(Card.drawFromDeck());
+        Game.getPile().clear();
+        Game.getPile().addFirst(Card.drawFromDeck());
     }
 
 
@@ -63,10 +63,10 @@ public class Card {
         }
 
         String colorToPlay;
-        if (Game.jokerColor[0] == null) {
+        if (Game.getJokerColor()[0] == null) {
             colorToPlay = onPile.getColor();
         }else {
-            colorToPlay = Game.jokerColor[0];
+            colorToPlay = Game.getJokerColor()[0];
         }
 
         if (!Objects.equals(this.getColor(), colorToPlay)

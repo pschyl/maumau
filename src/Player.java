@@ -39,7 +39,7 @@ public class Player {
                 String jokerColor = scanJ.nextLine();
 
                 if (colorList.contains(jokerColor)) {
-                    Game.jokerColor[0] = jokerColor;
+                    Game.setJokerColor(jokerColor);
                     break;
                 }
                 System.out.println("Not a valid color!");
@@ -47,11 +47,11 @@ public class Player {
         }
 
         if (card.getValue().equals("7")) {
-            Game.sevenTrigger += 1;
+            Game.incrementSevenTrigger();
         }
 
 
-        Game.pile.addFirst(card);
+        Game.getPile().addFirst(card);
         hand.remove(card);
     }
 

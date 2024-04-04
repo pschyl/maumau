@@ -6,19 +6,32 @@ import java.util.Scanner;
 public class Game {
 
     private static Scanner scan = new Scanner(System.in);
-
-    public static ArrayList<Card> pile = new ArrayList<>();
+    private static ArrayList<Card> pile = new ArrayList<>();
     private static int turn = 0;
-
-    public static ArrayList<Player> players = new ArrayList<>();
-
-    public static String[] jokerColor = new String[1];
-
-    public static int sevenTrigger = 0;
+    private static ArrayList<Player> players = new ArrayList<>();
+    private static String[] jokerColor = new String[1];
+    private static int sevenTrigger = 0;
     private static boolean gameOn = true;
+
+
+    public static void incrementSevenTrigger() {
+        Game.sevenTrigger += 1;
+    }
 
     public static int getTurn() {
         return turn;
+    }
+
+    public static ArrayList<Card> getPile() {
+        return pile;
+    }
+
+    public static String[] getJokerColor() {
+        return jokerColor;
+    }
+
+    public static void setJokerColor(String jokerColor) {
+        Game.jokerColor[0] = jokerColor;
     }
 
     public static void startGame() {
