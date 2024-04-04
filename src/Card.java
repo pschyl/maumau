@@ -55,10 +55,12 @@ public class Card {
 
     public boolean isValid(Card onPile) {
 
+        //check special case if there is a J on pile at turn 1
         if (Game.getTurn() == 1 && Objects.equals(onPile.getValue(), "J")) {
             return true;
         }
 
+        //determine if there is a joker color to serve or just normal case
         String colorToPlay;
         if (Game.getJokerColor()[0] == null) {
             colorToPlay = onPile.getColor();
@@ -66,6 +68,7 @@ public class Card {
             colorToPlay = Game.getJokerColor()[0];
         }
 
+        //check if card is valid choice
         if (!Objects.equals(this.getColor(), colorToPlay)
                 && !Objects.equals(this.getValue(), onPile.getValue())
                 && !Objects.equals(this.getValue(), "J")) {

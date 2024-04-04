@@ -39,7 +39,7 @@ public class Game {
         Game.jokerColor[0] = jokerColor;
     }
 
-    public static void startGame() {
+    public static void setupGame() {
         //create Deck
         Card.createDeck();
         Card.shuffleDeck();
@@ -54,6 +54,7 @@ public class Game {
             players.add(newPlayer);
         }
 
+        //put first card on pile which has to be served
         Game.pile.addFirst(Card.drawFromDeck());
         System.out.println(" ");
 
@@ -74,11 +75,9 @@ public class Game {
         System.out.println(" ");
         System.out.println(" ");
 
-        mainLoop();
-
     }
 
-    public static void mainLoop() {
+    public static void startGame() {
 
         System.out.println("GAME BEGINS");
         //main Game-loop

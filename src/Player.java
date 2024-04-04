@@ -32,6 +32,7 @@ public class Player {
 
     public void playCard(Card card) {
 
+        //check if chosen card is J and apply special rules
         if (card.getValue().equals("J")) {
             while(true) {
                 List<String> colorList = Arrays.asList(Card.getColors());
@@ -46,15 +47,17 @@ public class Player {
             }
         }
 
+        //check if chosen card is 7 and apply special rules
         if (card.getValue().equals("7")) {
             Game.incrementSevenTrigger();
         }
 
+        //check if chosen card is 8 and apply special rules
         if (card.getValue().equals("8")) {
             Game.setEightTrigger(false);
         }
 
-
+        //play card
         Game.getPile().addFirst(card);
         hand.remove(card);
     }
